@@ -1,0 +1,13 @@
+.fm-menu-item {
+  @include media('tablet', 'min') {
+    height: 100%;
+  }
+
+  &__text {
+    width: 100%;
+    min-width: 200px;
+
+    align-self: center;
+    text-align: center;
+  }
+}
