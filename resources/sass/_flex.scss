@@ -1,0 +1,45 @@
+$gapSizes: 1, 2, 3, 4;
+
+.flex {
+  display: flex;
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-center {
+    justify-content: center;
+  }
+
+  &-center-center {
+    @extend .flex-center;
+    align-items: center;
+  }
+
+  &-start {
+    justify-content: flex-start;
+  }
+
+  &-end {
+    justify-content: flex-end;
+  }
+
+  &-space-between {
+    justify-content: space-between;
+  }
+
+  &-space-around {
+    justify-content: space-around;
+  }
+
+  &-space-evenly {
+    justify-content: space-evenly;
+  }
+
+  @each $size in $gapSizes {
+    &-gap-#{$size} {
+      gap: #{$size}rem;
+    }
+  }
+
+}
