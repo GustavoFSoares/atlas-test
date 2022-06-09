@@ -1,0 +1,23 @@
+.fm-menu-logo {
+  @extend .flex;
+  @extend .flex-space-between;
+  gap: 19px;
+
+  &__title {
+    @extend .fm-text-color-1;
+    @extend .fm-font-size-20;
+    @extend .fm-font-weight-light;
+  }
+
+  &__decorator {
+    width: 70px;
+
+    @extend .flex;
+    @extend .flex-column;
+    @extend .flex-center;
+
+    &--content {
+      border: 1px solid #FFFFFF;
+    }
+  }
+}
