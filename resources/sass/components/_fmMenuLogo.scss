@@ -6,7 +6,7 @@
   &__title {
     @extend .fm-text-color-1;
     @extend .fm-font-size-20;
-    @extend .fm-font-weight-light;
+    @extend .fm-font-weight-regular;
   }
 
   &__decorator {
@@ -20,7 +20,7 @@
     @extend .flex-center;
 
     &--content {
-      border: 1px solid #FFFFFF;
+      border: 1px solid map-get($colors, 1);
     }
   }
 
