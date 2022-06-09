@@ -1,15 +1,10 @@
 <template>
   <nav class="fm-menu" :class="{'active' : isShowMenu}">
     <fm-menu-logo class="fm-menu-logo" />
-    <div
-      class="fm-menu-close"
-      :class="{'active' : isShowMenu}"
-      @click="isShowMenu = !isShowMenu"
-    >
-      <span />
-      <span />
-      <span />
-    </div>
+    <fm-menu-button
+      class="fm-menu-button"
+      :is-show-menu.sync="isShowMenu"
+    />
 
     <div class="fm-menu-items" @click="isShowMenu = false">
       <div class="fm-menu-items__container">
@@ -30,12 +25,14 @@
 <script>
 import FmMenuItem from  '../atoms/FmMenuItem.vue'
 import FmMenuLogo from  '../atoms/FmMenuLogo.vue'
+import FmMenuButton from  '../atoms/FmMenuButton.vue'
 
 export default {
   name: 'VMenu',
   components: {
     FmMenuItem,
-    FmMenuLogo
+    FmMenuLogo,
+    FmMenuButton
   },
   data () {
     return {
