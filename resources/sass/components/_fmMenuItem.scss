@@ -3,24 +3,38 @@
     height: 100%;
   }
 
-  &__text {
+  &__content {
     width: 100%;
     min-width: 200px;
 
-    align-self: center;
-    text-align: start;
+    gap: 29px;
 
-    @extend .fm-text-color-1;
-    @extend .fm-font-size-25;
-    @extend .fm-font-weight-bold;
+    @extend .flex;
+    @extend .flex-align-center;
 
     @include media('tablet', 'min') {
-      text-align: center;
+      justify-content: center;
+    }
 
-      font-size: 16px;
+    &--text {
+      @extend .fm-text-color-1;
+      @extend .fm-font-size-25;
+      @extend .fm-font-weight-bold;
 
-      &:not(&--exact) {
-        font-weight: 450;
+      @include media('tablet', 'min') {
+        text-align: center;
+
+        font-size: 16px;
+
+        &:not(.exact) {
+          font-weight: 450;
+        }
+      }
+    }
+
+    &--icon {
+      @include media('tablet', 'min') {
+        display: none;
       }
     }
   }

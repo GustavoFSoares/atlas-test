@@ -3,19 +3,30 @@
     class="fm-menu-item"
     :href="href"
   >
-    <span :class="[
-        'fm-menu-item__text',
-        { 'fm-menu-item__text--exact': isExact }
-      ]"
-    >
-      {{ label }}
-    </span>
+    <div class="fm-menu-item__content">
+      <component class="fm-menu-item__content--icon" :is="icon" />
+
+      <span :class="[
+          'fm-menu-item__content--text',
+          { 'exact': isExact }
+        ]"
+      >
+        {{ label }}
+      </span>
+    </div>
   </a>
 </template>
 
 <script>
+import FmHomeIcon from "../../icons/FmHomeIcon.vue";
+import FmListIcon from "../../icons/FmListIcon.vue";
+
 export default {
   name: 'FmMenuItem',
+  components: {
+    FmHomeIcon,
+    FmListIcon
+  },
   props: {
     label: {
       type: String,
@@ -39,6 +50,14 @@ export default {
   computed: {
     isExact() {
       return this.href === window.location.pathname
+    },
+    icon() {
+      const icons = {
+        home: 'fm-home-icon',
+        list: 'fm-list-icon',
+      }
+
+      return icons[this.name]
     }
   }
 }
