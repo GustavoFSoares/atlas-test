@@ -9,7 +9,6 @@
 
     gap: 29px;
 
-    @extend .flex;
     @extend .flex-align-center;
 
     @include media('tablet', 'min') {

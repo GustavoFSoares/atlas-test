@@ -1,5 +1,4 @@
 .fm-menu-logo {
-  @extend .flex;
   @extend .flex-space-between;
   gap: 19px;
 
@@ -15,7 +14,6 @@
       display: none;
     }
 
-    @extend .flex;
     @extend .flex-column;
     @extend .flex-center;
 
