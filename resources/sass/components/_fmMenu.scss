@@ -12,28 +12,25 @@
 }
 
 .fm-menu {
+  @extend .container;
+
   @extend .flex;
   @extend .flex-space-between;
   @extend .flex-center-center;
+
   position: relative;
-  padding: 20px 0;
   width: auto;
+
   margin: 0 auto;
+  padding: 0 20px;
 
-  @extend .container;
-
-  /* @include media('tablet', 'max') {
-    width: auto;
+  @include media('tablet', 'min') {
+    padding: 20px 0;
   }
 
-  &-logo {
-    height: 64px;
-    cursor: pointer;
-
-    @include media("mobile-m", "<") {
-      height: 48px;
-    }
-  } */
+  &-logo, &-close {
+    z-index: 2;
+  }
 
   &-close {
     height: 32px;
@@ -87,64 +84,24 @@
     }
   }
 
-  @include media('tablet', 'max') {
-    &-item {
-      // background: map-get($backgrounds, 'soft-dark');
-      width: 100%;
-      padding: 20px 10px;
-    }
-
-    ::v-deep &-line{
-      display: none;
-    }
-  }
-
   &-items {
     height: 35px;
+
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-
-    &__item {
-      // height: 100%;
-
-      display: flex;
-      gap: 10px;
-      flex-direction: row;
-
-      @include media('tablet', 'max') {
-        gap: 30px;
-        flex-direction: column;
-      }
-
-      &:nth-child(odd) {
-        &:after {
-          content: '';
-          border: 1px solid #FFFFFF;
-
-          height: 33px;
-
-          @include media('tablet', 'max') {
-            height: initial;
-            margin: 0 80px;
-          }
-        }
-      }
-    }
 
     @include media('tablet', 'max') {
-      top: 94px;
-      flex-direction: column;
-      justify-content: unset;
-      align-items: flex-start;
-      position: fixed;
-      z-index: 1;
+      top: 0;
       left: 0;
-      // padding: 10px;
-      gap: 5px;
-      // backdrop-filter: blur(12px);
+
+      position: fixed;
+
       width: 100vw;
-      height: 100vh;
+      height: 100%;
+
+      z-index: 1;
+      background-color: #2C2C2D;
+
       transform: translate3d(100vw, 0, 0);
       transition: ease 1s;
 
@@ -153,8 +110,47 @@
       }
     }
 
-    @include media ('mobile-m', '<') {
-      top: 78px;
+    &__container {
+      display: flex;
+      gap: 10px;
+
+      @include media('tablet', 'max') {
+        margin-top: 100px;
+
+        width: 100%;
+        gap: 30px;
+        flex-direction: column;
+      }
+
+      &--item {
+        display: flex;
+
+        gap: 10px;
+        flex-direction: row;
+
+        @include media('tablet', 'max') {
+          gap: 30px;
+          flex-direction: column;
+
+          width: 100%;
+          padding: 0 30px;
+        }
+
+        &:nth-child(odd) {
+          &:after {
+            content: '';
+            border: 1px solid #FFFFFF;
+
+            height: 33px;
+
+            @include media('tablet', 'max') {
+              height: initial;
+              margin: 0 50px;
+              opacity: 0.5;
+            }
+          }
+        }
+      }
     }
   }
 }
