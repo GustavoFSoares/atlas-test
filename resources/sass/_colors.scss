@@ -1,0 +1,15 @@
+$colors: (
+  1: #ffffff,
+);
+
+@each $name, $value in $colors {
+  .fm-text-color-#{$name} {
+    color: $value;
+  }
+}
+
+@each $name, $value in $colors {
+  .fm-background-#{$name} {
+    background-color: $value;
+  }
+}

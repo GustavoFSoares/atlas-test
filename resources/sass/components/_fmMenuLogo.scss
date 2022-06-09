@@ -11,6 +11,9 @@
 
   &__decorator {
     width: 70px;
+    @include media('tablet', 'max') {
+      display: none;
+    }
 
     @extend .flex;
     @extend .flex-column;
@@ -20,4 +23,5 @@
       border: 1px solid #FFFFFF;
     }
   }
+
 }
