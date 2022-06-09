@@ -19,15 +19,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="@yield('class')">
     <div id="app">
-        <nav>
-            <div class="container">
-                <a href="{{ url('/') }}">
-                    FM-CATE
-                </a>
-            </div>
-        </nav>
+        <fm-menu />
+
         <main class="py-4">
             @yield('content')
         </main>
