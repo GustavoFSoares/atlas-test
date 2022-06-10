@@ -24,6 +24,6 @@ Route::get('/list',function(){
 
 
 Route::get('/breeds/{id}',function($id){
-  return view('breeds',compact("id"));
+  return view('breeds', compact("id"));
 });
 
