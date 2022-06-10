@@ -3,7 +3,7 @@
     height: 100%;
   }
 
-  &__content {
+  .content {
     width: 100%;
     min-width: 200px;
 
@@ -15,7 +15,7 @@
       justify-content: center;
     }
 
-    &--text {
+    &__text {
       @extend .fm-text-color-1;
       @extend .fm-font-size-25;
       @extend .fm-font-weight-bold;
@@ -31,7 +31,7 @@
       }
     }
 
-    &--icon {
+    &__icon {
       @include media('tablet', 'min') {
         display: none;
       }

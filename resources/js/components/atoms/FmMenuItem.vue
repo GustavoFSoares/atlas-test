@@ -3,11 +3,11 @@
     class="fm-menu-item"
     :href="href"
   >
-    <div class="fm-menu-item__content">
-      <component class="fm-menu-item__content--icon" :is="icon" />
+    <div class="content">
+      <component class="content__icon" :is="icon" />
 
       <span :class="[
-          'fm-menu-item__content--text',
+          'content__text',
           { 'exact': isExact }
         ]"
       >
