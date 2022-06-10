@@ -1,6 +1,7 @@
 <template>
-  <nav class="fm-menu" :class="{'active' : isShowMenu}">
+  <nav class="fm-menu" :class="{'active': isShowMenu}">
     <fm-menu-logo class="fm-menu-logo" />
+
     <fm-menu-button
       class="fm-menu-button"
       :is-show-menu.sync="isShowMenu"
@@ -50,40 +51,7 @@ export default {
           name: 'list',
         },
       ],
-      isShowMenu: true
-    }
-  },
-  watch: {
-    isShowMenu (val) {
-      this.showMenu(val)
-    }
-  },
-  mounted () {
-    // if (window.innerWidth < 768) {
-    //   const gsap = this.$gsap
-    //   gsap.set(
-    //     '.menu-item', {
-    //       x: 768
-    //     })
-    // }
-  },
-  methods: {
-    showMenu (bol) {
-    //   const gsap = this.$gsap
-    //   gsap.to(
-    //     '.menu-item',
-    //     {
-    //       x: (bol) ? 0 : 768,
-    //       stagger: (bol) ? 0.2 : 0.1
-    //     })
-    },
-    toTop () {
-      // if (window.scrollY === 0) {
-      //   this.$router.push({ name: 'index' })
-      // }
-
-      // window.scrollTo({ top: 0, behavior: 'smooth' })
-      // history.pushState('/', 'Rebirth Studio', '/')
+      isShowMenu: false
     }
   }
 }
