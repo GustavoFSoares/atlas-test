@@ -10,7 +10,7 @@
       :is-show-menu.sync="isShowMenu"
     />
 
-    <div class="items" @click="isShowMenu = false">
+    <div class="fm-menu__items" @click="isShowMenu = false">
       <div class="container">
         <fm-menu-item
           v-for="(item, index) in menuItems"
