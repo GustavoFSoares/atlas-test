@@ -28,7 +28,7 @@ import FmMenuLogo from  '../atoms/FmMenuLogo.vue'
 import FmMenuButton from  '../atoms/FmMenuButton.vue'
 
 export default {
-  name: 'VMenu',
+  name: 'fm-menu',
   components: {
     FmMenuItem,
     FmMenuLogo,

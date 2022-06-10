@@ -22,7 +22,7 @@ import FmHomeIcon from "../../icons/FmHomeIcon.vue";
 import FmListIcon from "../../icons/FmListIcon.vue";
 
 export default {
-  name: 'FmMenuItem',
+  name: 'fm-menu-item',
   components: {
     FmHomeIcon,
     FmListIcon
