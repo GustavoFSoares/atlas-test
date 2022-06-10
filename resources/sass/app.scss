@@ -4,6 +4,22 @@
 // Variables
 @import 'variables';
 
+@import "mixins";
+@import "colors";
+@import "fonts";
+@import "container";
+@import "flex";
+
+@import "default";
+
+// Components
+@import './components/fmMenu';
+@import './components/fmCarousel';
+@import './components/fmMenuItem';
+@import './components/fmMenuLogo';
+
+// Pages
+@import 'welcome';
 
 .fm-cate{
   font-size: 100px;

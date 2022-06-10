@@ -1,0 +1,53 @@
+.fm-carousel {
+  $imageHeigt: 420px;
+
+  @extend .flex-align-center;
+  gap: 20px;
+
+  .images {
+    @extend .flex-column;
+    height: $imageHeigt;
+    overflow-y: hidden;
+
+    &__item {
+      width: $imageHeigt;
+      height: $imageHeigt;
+    }
+
+  }
+  .control {
+    @extend .flex-column;
+    gap: 15px;
+
+    &__item {
+      content: '';
+      cursor: pointer;
+
+      display: block;
+      position: relative;
+
+      width: 10px;
+      height: 10px;
+
+      background: map-get($colors, 1);
+      border-radius: 50%;
+
+      &.checked {
+        position: relative;
+
+        @extend .flex-center-center;
+
+        &:before {
+          content: '';
+          position: absolute;
+
+          width: 5px;
+          height: 5px;
+          background: map-get($colors, 2);
+
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
