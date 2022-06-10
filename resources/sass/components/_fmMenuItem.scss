@@ -1,5 +1,5 @@
 .fm-menu-item {
-  @include media('tablet', 'min') {
+  @include media('mobile', 'min') {
     height: 100%;
   }
 
@@ -11,7 +11,7 @@
 
     @extend .flex-align-center;
 
-    @include media('tablet', 'min') {
+    @include media('mobile', 'min') {
       justify-content: center;
     }
 
@@ -20,7 +20,7 @@
       @extend .fm-font-size-25;
       @extend .fm-font-weight-bold;
 
-      @include media('tablet', 'min') {
+      @include media('mobile', 'min') {
         text-align: center;
 
         font-size: 16px;
@@ -32,7 +32,7 @@
     }
 
     &__icon {
-      @include media('tablet', 'min') {
+      @include media('mobile', 'min') {
         display: none;
       }
     }
