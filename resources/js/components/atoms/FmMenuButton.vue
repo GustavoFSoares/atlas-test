@@ -1,9 +1,7 @@
 <template>
   <div
-    :class="[
-      'fm-menu-button',
-      { 'fm-menu-button__active': isShowMenu }
-    ]"
+    class="fm-menu-button"
+    :class="{ 'fm-menu-button__active': isShowMenu }"
     @click="handleClick"
   >
     <span />
