@@ -29,6 +29,11 @@ const carousel = {
     carousel.scrollCarousel(imageId)
   },
   scrollCarousel: (imageId) => {
+    const lastControl = document.getElementById(`fm-carousel-control-${carousel.currentImage}`)
+    if (lastControl) {
+      lastControl.classList.remove('checked')
+    }
+
     carousel.currentImage = imageId
 
     const image = document.getElementById(`fm-carousel-image-${imageId}`)
@@ -37,8 +42,10 @@ const carousel = {
       block: "start",
       inline: "nearest"
     });
+
+    document.getElementById(`fm-carousel-control-${imageId}`).classList.add('checked')
   },
-  startListners: () => {
+  startListeners: () => {
     const controlList = document.querySelector('.fm-carousel .fm-carousel__control')
     for (const controlItem of controlList.children) {
       const itemId = controlItem.id.replace('fm-carousel-control-', '')
@@ -63,7 +70,8 @@ const carousel = {
 }
 
 window.onload = () => {
-  carousel.startListners()
+  carousel.scrollCarousel(1)
+  carousel.startListeners()
   carousel.startNewInterval()
 }
 </script>

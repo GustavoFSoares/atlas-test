@@ -22,6 +22,7 @@
     &--item {
       content: '';
       cursor: pointer;
+
       display: block;
       position: relative;
 
@@ -30,6 +31,23 @@
 
       background: map-get($colors, 1);
       border-radius: 50%;
+
+      &.checked {
+        position: relative;
+
+        @extend .flex-center-center;
+
+        &:before {
+          content: '';
+          position: absolute;
+
+          width: 5px;
+          height: 5px;
+          background: map-get($colors, 2);
+
+          border-radius: 50%;
+        }
+      }
     }
   }
 }

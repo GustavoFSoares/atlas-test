@@ -1,5 +1,6 @@
 $colors: (
   1: #ffffff,
+  2: #000000,
 );
 
 @each $name, $value in $colors {
