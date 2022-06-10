@@ -51,7 +51,7 @@ body.welcome-page-background {
       width: 100%;
       @extend .flex-end;
 
-      margin-top: #{map-get($margin-sizes, 32)}rem;
+      margin-top: #{map-get($margin-sizes, 42)}rem;
       @include media('tablet', 'min') {
         margin-top: #{map-get($margin-sizes, 96)}rem;
       }

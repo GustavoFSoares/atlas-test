@@ -12,7 +12,7 @@
     </h3>
 
     <div class="button-container">
-      <button class="fm-button">Seach Pokemon</button>
+      <a class="fm-button" href="list">Seach Pokemon</a>
     </div>
   </div>
 
