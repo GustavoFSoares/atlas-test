@@ -26,6 +26,7 @@ $font-sizes: (
   16: 1.6,
   20: 2,
   25: 2.5,
+  30: 3,
 );
 
 @each $name, $size in $font-sizes {
@@ -44,5 +45,17 @@ $font-weights: (
 @each $name, $value in $font-weights {
   .fm-font-weight-#{$name} {
     font-weight: $value;
+  }
+}
+
+$font-aligns: (
+  center,
+  start,
+  end,
+);
+
+@each $name in $font-aligns {
+  .fm-font-align-#{$name} {
+    text-align: $name;
   }
 }
