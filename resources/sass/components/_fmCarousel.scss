@@ -1,0 +1,35 @@
+.fm-carousel {
+  $imageHeigt: 420px;
+
+  @extend .flex-align-center;
+  gap: 20px;
+
+  &__images {
+    @extend .flex-column;
+    height: $imageHeigt;
+    overflow-y: hidden;
+
+    &--item {
+      width: $imageHeigt;
+      height: $imageHeigt;
+    }
+
+  }
+  &__control {
+    @extend .flex-column;
+    gap: 15px;
+
+    &--item {
+      content: '';
+      cursor: pointer;
+      display: block;
+      position: relative;
+
+      width: 10px;
+      height: 10px;
+
+      background: map-get($colors, 1);
+      border-radius: 50%;
+    }
+  }
+}
