@@ -27,17 +27,17 @@
     padding: 20px 0;
   }
 
-  &-logo, &-button {
+  .logo, .button {
     z-index: 2;
   }
 
-  &-button {
+  .button {
     @include media('tablet', 'min') {
       display: none !important;
     }
   }
 
-  &-items {
+  .items {
     height: 35px;
 
     display: flex;
@@ -63,7 +63,7 @@
       }
     }
 
-    &__container {
+    .container {
       display: flex;
       gap: 10px;
 
@@ -75,7 +75,7 @@
         flex-direction: column;
       }
 
-      &--item {
+      &__item {
         display: flex;
 
         gap: 10px;
