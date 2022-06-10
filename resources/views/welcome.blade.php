@@ -5,16 +5,16 @@
 @section('content')
 <div class="welcome-page" onload="welcomeOnLoad()">
   <div class="fm-carousel">
-    <div class="fm-carousel__images">
-      <img id="fm-carousel-image-1" class="fm-carousel__images--item fm-carousel__images--item-1" src="{{URL::asset('/img/carousel/1.png')}}" alt="fm-carousel-1">
-      <img id="fm-carousel-image-2" class="fm-carousel__images--item fm-carousel__images--item-2" src="{{URL::asset('/img/carousel/2.png')}}" alt="fm-carousel-2">
-      <img id="fm-carousel-image-3" class="fm-carousel__images--item fm-carousel__images--item-3" src="{{URL::asset('/img/carousel/3.png')}}" alt="fm-carousel-3">
+    <div class="images">
+      <img id="fm-carousel-image-1" class="images__item images__item--1" src="{{URL::asset('/img/carousel/1.png')}}" alt="fm-carousel-1">
+      <img id="fm-carousel-image-2" class="images__item images__item--2" src="{{URL::asset('/img/carousel/2.png')}}" alt="fm-carousel-2">
+      <img id="fm-carousel-image-3" class="images__item images__item--3" src="{{URL::asset('/img/carousel/3.png')}}" alt="fm-carousel-3">
     </div>
 
-    <div class="fm-carousel__control">
-      <span id="fm-carousel-control-1" class="fm-carousel__control--item fm-carousel__control--item-1"></span>
-      <span id="fm-carousel-control-2" class="fm-carousel__control--item fm-carousel__control--item-2"></span>
-      <span id="fm-carousel-control-3" class="fm-carousel__control--item fm-carousel__control--item-3"></span>
+    <div class="control">
+      <span id="fm-carousel-control-1" class="control__item control__item--1"></span>
+      <span id="fm-carousel-control-2" class="control__item control__item--2"></span>
+      <span id="fm-carousel-control-3" class="control__item control__item--3"></span>
     </div>
   </div>
 </div>
@@ -46,7 +46,7 @@ const carousel = {
     document.getElementById(`fm-carousel-control-${imageId}`).classList.add('checked')
   },
   startListeners: () => {
-    const controlList = document.querySelector('.fm-carousel .fm-carousel__control')
+    const controlList = document.querySelector('.fm-carousel .control')
     for (const controlItem of controlList.children) {
       const itemId = controlItem.id.replace('fm-carousel-control-', '')
 

@@ -4,22 +4,22 @@
   @extend .flex-align-center;
   gap: 20px;
 
-  &__images {
+  .images {
     @extend .flex-column;
     height: $imageHeigt;
     overflow-y: hidden;
 
-    &--item {
+    &__item {
       width: $imageHeigt;
       height: $imageHeigt;
     }
 
   }
-  &__control {
+  .control {
     @extend .flex-column;
     gap: 15px;
 
-    &--item {
+    &__item {
       content: '';
       cursor: pointer;
 
