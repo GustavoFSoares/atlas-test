@@ -1,10 +1,22 @@
 @extends('layouts.app')
 
-@section('class', 'welcome-page')
+@section('class', 'welcome-page-background')
 
 @section('content')
-<div class="welcome-page" onload="welcomeOnLoad()">
-  <div class="fm-carousel">
+<section class="welcome-page container">
+  <div class="welcome-page__content">
+    <h1 class="title">Pokedex</h1>
+
+    <h3 class="description">
+      Use the Advanced Search to explore Pokémon by type, weakness, Ability, and more! Search for a Pokémon by name or using its National Pokédex number.
+    </h3>
+
+    <div class="button-container">
+      <a class="fm-button" href="list">Seach Pokemon</a>
+    </div>
+  </div>
+
+  <div class="welcome-page__carousel fm-carousel">
     <div class="images">
       <img id="fm-carousel-image-1" class="images__item images__item--1" src="{{URL::asset('/img/carousel/1.png')}}" alt="fm-carousel-1">
       <img id="fm-carousel-image-2" class="images__item images__item--2" src="{{URL::asset('/img/carousel/2.png')}}" alt="fm-carousel-2">
@@ -17,7 +29,7 @@
       <span id="fm-carousel-control-3" class="control__item control__item--3"></span>
     </div>
   </div>
-</div>
+</section>
 @endsection
 
 <script>
