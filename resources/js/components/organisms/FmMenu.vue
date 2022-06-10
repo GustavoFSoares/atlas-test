@@ -1,14 +1,17 @@
 <template>
-  <nav class="fm-menu" :class="{'active': isShowMenu}">
-    <fm-menu-logo class="fm-menu-logo" />
+  <nav
+    class="fm-menu"
+    :class="{'active': isShowMenu}"
+  >
+    <fm-menu-logo class="logo" />
 
     <fm-menu-button
-      class="fm-menu-button"
+      class="button"
       :is-show-menu.sync="isShowMenu"
     />
 
-    <div class="fm-menu-items" @click="isShowMenu = false">
-      <div class="fm-menu-items__container">
+    <div class="fm-menu__items" @click="isShowMenu = false">
+      <div class="container">
         <fm-menu-item
           v-for="(item, index) in menuItems"
           :key="`${index}-${item}`"
@@ -16,7 +19,7 @@
           :href="item.path"
           :hash="item.id"
           :name="item.name"
-          :class="`fm-menu-items__container--item fm-menu-items__container--item-${item.name}`"
+          :class="`container__item container__item--${item.name}`"
         />
       </div>
     </div>
