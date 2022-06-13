@@ -3,7 +3,7 @@
   @extend .flex-column;
 
   @include media('tablet', 'min') {
-    max-width: 20rem;
+    width: 20rem;
   }
 
   &__image {
@@ -24,14 +24,12 @@
       height: 10rem;
 
       z-index: 2;
-      background: red;
     }
   }
 
   &__container{
     border-radius: 8px;
 
-    background: #78C850;
     padding-bottom: 10px;
 
     .header {
@@ -45,7 +43,6 @@
         justify-content: flex-end;
         align-items: flex-end;
       }
-
 
       &__identifier {
         @extend .fm-text-color-1;
@@ -85,7 +82,9 @@
 
             height: 100%;
             @extend .flex-column;
-            @extend .flex-space-between;
+            @extend .flex-center;
+
+            gap: 7px;
 
             &__item {
               height: 18px;
@@ -103,6 +102,9 @@
             }
 
             &__text {
+              height: 100%;
+
+              @extend .flex-align-center;
               @extend .fm-font-size-18;
               @extend .fm-font-weight-regular;
             }
