@@ -17,6 +17,8 @@
   @extend .flex-space-between;
   @extend .flex-center-center;
 
+  z-index: 100;
+
   position: relative;
   width: auto;
 
@@ -28,7 +30,7 @@
   }
 
   .logo, .button {
-    z-index: 2;
+    z-index: 101;
   }
 
   .button {

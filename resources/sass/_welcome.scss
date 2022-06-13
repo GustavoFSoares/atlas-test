@@ -13,10 +13,6 @@ body.welcome-page-background {
   @extend .fm-mt-101;
 
   &__content {
-    padding: 0 20px;
-    @include media('tablet', '>') {
-      padding: initial;
-    }
 
     .title, .description {
       @extend .fm-text-color-1;
