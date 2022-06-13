@@ -23,7 +23,8 @@
 
 // Pages
 @import 'welcome';
-@import './views/pokedexList';
+@import './views/pokedexList/page.scss';
+@import './views/pokedexList/pokemonCard.scss';
 
 .fm-cate{
   font-size: 100px;

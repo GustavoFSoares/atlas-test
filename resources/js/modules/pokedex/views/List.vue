@@ -1,6 +1,8 @@
 <template>
   <div class="pokedex-list">
-    <pokemon-card />
+    <div>
+      <pokemon-card />
+    </div>
   </div>
 </template>
 
