@@ -36,7 +36,7 @@
       height: 2.5rem;
 
       @extend .flex;
-      justify-content: flex-star t;
+      justify-content: flex-start;
       align-items: flex-start;
 
       @include media('tablet', 'min') {
