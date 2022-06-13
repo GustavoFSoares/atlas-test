@@ -11,14 +11,18 @@
         </span>
       </div>
 
-      <div class="content">
-        <div class="content__types">
-          <div class="content__types__item content__types__item--grass">G</div>
-          <div class="content__types__item content__types__item--poison">P</div>
-        </div>
+      <div class="data__card">
+        <div class="data__card__container">
+          <div class="data__card__container__content">
+            <div class="types">
+              <div class="types__item types__item--grass">G</div>
+              <div class="types__item types__item--poison">P</div>
+            </div>
 
-        <div class="content__name">
-          <h4 class="content__name__text">bulbasaur</h4>
+            <div class="name">
+              <h4 class="name__text">bulbasaur</h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
