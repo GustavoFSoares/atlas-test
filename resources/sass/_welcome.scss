@@ -10,7 +10,7 @@ body.welcome-page-background {
   @extend .flex;
   gap: 20px;
 
-  @extend .fm-mt-96;
+  @extend .fm-mt-101;
 
   &__content {
     padding: 0 20px;
@@ -53,7 +53,7 @@ body.welcome-page-background {
 
       margin-top: #{map-get($margin-sizes, 42)}rem;
       @include media('tablet', 'min') {
-        margin-top: #{map-get($margin-sizes, 96)}rem;
+        margin-top: #{map-get($margin-sizes, 101)}rem;
       }
     }
   }
