@@ -1,15 +1,25 @@
 .pokemon-card {
+  position: relative;
   @extend .flex-column;
 
   &__image {
-    @extend .flex-center;
+    @extend .flex;
+
+    position: absolute;
+    right: 0;
+
+    @include media('tablet', 'min') {
+      position: initial;
+      margin-bottom: -4rem;
+
+      justify-content: center;
+    }
 
     .img {
       width: 10rem;
       height: 10rem;
 
       z-index: 2;
-      margin-bottom: -4rem;
       background: red;
     }
   }
