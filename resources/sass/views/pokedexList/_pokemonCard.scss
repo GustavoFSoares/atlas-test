@@ -1,7 +1,4 @@
 .pokemon-card {
-  width: 20rem;
-  min-height: 15.6rem;
-
   @extend .flex-column;
 
   &__image {
@@ -26,44 +23,57 @@
     .header {
       height: 2.5rem;
 
-      @extend .flex-end;
-      @extend .flex-align-end;
+      @extend .flex;
+      justify-content: flex-star t;
+      align-items: flex-start;
+
+      @include media('tablet', 'min') {
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+
 
       &__identifier {
-        @extend .fm-pr-5;
         @extend .fm-text-color-1;
         @extend .fm-font-size-16;
         @extend .fm-font-weight-regular;
+
+        margin: 3px 0 0 10px;
+
+        @include media('tablet', 'min') {
+          margin: 0 5px 2px 0;
+        }
       }
     }
 
-    .content {
-      padding: 10px;
+    .data {
       @extend .fm-background-1;
 
-      @extend .flex;
+      &__container {
+        padding: 10px;
 
-      &__types {
-        @extend .flex-column;
-        gap: 10px;
+        @extend .flex;
 
-        &__item {
-          height: 18px;
+        .types {
+          @extend .flex-column;
+          gap: 9px;
 
-          @extend .flex-center-center;
+          &__item {
+            height: 18px;
+
+            @extend .flex-center-center;
+          }
+        }
+
+        .name {
+          @extend .flex-align-center;
+
+          &__text {
+            @extend .fm-font-size-18;
+            @extend .fm-font-weight-regular;
+          }
         }
       }
-
-      &__name {
-        @extend .flex-align-center;
-
-        &__text {
-          @extend .fm-font-size-18;
-          @extend .fm-font-weight-regular;
-        }
-      }
-
-
     }
   }
 }
