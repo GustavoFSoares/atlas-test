@@ -1,29 +1,29 @@
-.fm-carousel {
+.carousel {
   $imageHeigt: 420px;
 
   @extend .flex-align-center;
   position: relative;
 
-  .images {
+  &__images {
     @extend .flex-column;
     height: $imageHeigt;
     overflow-y: hidden;
 
-    &__item {
+    .carousel__image-item {
       width: $imageHeigt;
       height: $imageHeigt;
     }
 
   }
 
-  .control {
+  &__control {
     @extend .flex-column;
     gap: 15px;
     position: absolute;
 
     right: -20px;
 
-    &__item {
+    .carousel__control-item {
       content: '';
       cursor: pointer;
 
@@ -36,10 +36,12 @@
       border-radius: 50%;
       background: map-get($colors, 1);
 
-      &.checked {
+      &--checked {
         position: relative;
 
-        @extend .flex-center-center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &:before {
           content: '';

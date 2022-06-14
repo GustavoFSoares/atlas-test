@@ -1,15 +1,14 @@
 <template>
   <a
-    class="fm-menu-item"
+    class="item"
     :href="href"
   >
-    <div class="content">
-      <component class="content__icon" :is="icon" />
+    <div class="item__content">
+      <component class="item__icon" :is="icon" />
 
-      <span :class="[
-          'content__text',
-          { 'exact': isExact }
-        ]"
+      <span
+        class="item__text"
+        :class="{'item__text--exact': isExact }"
       >
         {{ label }}
       </span>
@@ -63,3 +62,49 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+@import "@/sass/_flex.scss";
+@import "@/sass/_colors.scss";
+@import "@/sass/_fonts.scss";
+@import "@/sass/_mixins.scss";
+
+.item {
+  @include media('tablet', 'min') {
+    height: 100%;
+  }
+
+  &__content {
+    width: 100%;
+    min-width: 200px;
+
+    gap: 29px;
+
+    @extend .flex-align-center;
+
+    @include media('tablet', 'min') {
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    @extend .fm-text-color-1;
+    @extend .fm-font-size-25;
+    @extend .fm-font-weight-bold;
+
+    @include media('tablet', 'min') {
+      text-align: center;
+      font-size: 16px;
+
+      &:not(&--exact) {
+        font-weight: 450;
+      }
+    }
+  }
+
+  &__icon {
+    @include media('tablet', 'min') {
+      display: none;
+    }
+  }
+}
+</style>

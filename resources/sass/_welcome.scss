@@ -1,25 +1,24 @@
-body.welcome-page-background {
-  background-image: url('/img/welcome-background.png');
+body.welcome-background {
+  background-image: url('/images/welcome-background.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
 
-.welcome-page {
+.welcome {
   @extend .flex;
   gap: 20px;
 
   @extend .fm-mt-101;
 
   &__content {
-
-    .title, .description {
+    .welcome__title, .welcome__description {
       @extend .fm-text-color-1;
       @extend .fm-font-weight-regular;
     }
 
-    .title {
+    .welcome__title {
       @extend .fm-ml-8;
       @extend .fm-font-size-30;
 
@@ -31,19 +30,19 @@ body.welcome-page-background {
       }
     }
 
-    .description {
+    .welcome__description {
       @extend .fm-font-align-end;
       line-height: 1.3;
 
-      font-size: #{map-get($font-sizes, 20)}rem;
+      font-size: #{map-get($font-sizes, 20)}px;
       margin-top: #{map-get($margin-sizes, 50)}rem;
       @include media('tablet', 'min') {
-        font-size: #{map-get($font-sizes, 16)}rem;
+        font-size: #{map-get($font-sizes, 16)}px;
         margin-top: #{map-get($margin-sizes, 32)}rem;
       }
     }
 
-    .button-container {
+    .welcome__button-container {
       width: 100%;
       @extend .flex-end;
 

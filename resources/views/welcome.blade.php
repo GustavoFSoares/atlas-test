@@ -1,32 +1,32 @@
 @extends('layouts.app')
 
-@section('class', 'welcome-page-background')
+@section('class', 'welcome-background')
 
 @section('content')
-<section class="welcome-page container">
-  <div class="welcome-page__content">
-    <h1 class="title">Pokedex</h1>
+<section class="welcome pokeatlas-container">
+  <div class="welcome__content">
+    <h1 class="welcome__title">Pokedex</h1>
 
-    <h3 class="description">
+    <h3 class="welcome__description">
       Use the Advanced Search to explore Pokémon by type, weakness, Ability, and more! Search for a Pokémon by name or using its National Pokédex number.
     </h3>
 
-    <div class="button-container">
-      <a class="fm-button" href="list">Seach Pokemon</a>
+    <div class="welcome__button-container">
+      <a class="welcome-button" href="list">Seach Pokemon</a>
     </div>
   </div>
 
-  <div class="welcome-page__carousel fm-carousel">
-    <div class="images">
-      <img id="fm-carousel-image-1" class="images__item images__item--1" src="{{URL::asset('/img/carousel/1.png')}}" alt="fm-carousel-1">
-      <img id="fm-carousel-image-2" class="images__item images__item--2" src="{{URL::asset('/img/carousel/2.png')}}" alt="fm-carousel-2">
-      <img id="fm-carousel-image-3" class="images__item images__item--3" src="{{URL::asset('/img/carousel/3.png')}}" alt="fm-carousel-3">
+  <div class="welcome__carousel carousel">
+    <div class="carousel__images">
+      <img id="carousel-image-1" class="carousel__image-item carousel__image-item--1" src="{{URL::asset('/images/carousel/1.png')}}" alt="Venusaur">
+      <img id="carousel-image-2" class="carousel__image-item carousel__image-item--2" src="{{URL::asset('/images/carousel/2.png')}}" alt="Charizard">
+      <img id="carousel-image-3" class="carousel__image-item carousel__image-item--3" src="{{URL::asset('/images/carousel/3.png')}}" alt="Blastoise">
     </div>
 
-    <div class="control">
-      <span id="fm-carousel-control-1" class="control__item control__item--1"></span>
-      <span id="fm-carousel-control-2" class="control__item control__item--2"></span>
-      <span id="fm-carousel-control-3" class="control__item control__item--3"></span>
+    <div class="carousel__control">
+      <span id="carousel-control-1" class="carousel__control-item carousel__control-item--1"></span>
+      <span id="carousel-control-2" class="carousel__control-item carousel__control-item--2"></span>
+      <span id="carousel-control-3" class="carousel__control-item carousel__control-item--3"></span>
     </div>
   </div>
 </section>
@@ -35,44 +35,45 @@
 <script>
 const carousel = {
   currentImage: 1,
-  interval: null,
+  changeImageInterval: null,
   handleClickControl: (imageId) => {
     carousel.startNewInterval()
     carousel.scrollCarousel(imageId)
   },
   scrollCarousel: (imageId) => {
-    const lastControl = document.getElementById(`fm-carousel-control-${carousel.currentImage}`)
+    const lastControl = document.getElementById(`carousel-control-${carousel.currentImage}`)
     if (lastControl) {
-      lastControl.classList.remove('checked')
+      lastControl.classList.remove('carousel__control-item--checked')
     }
 
     carousel.currentImage = imageId
 
-    const image = document.getElementById(`fm-carousel-image-${imageId}`)
+    const image = document.getElementById(`carousel-image-${imageId}`)
     image.scrollIntoView({
       behavior: "smooth",
       block: "start",
       inline: "nearest"
     });
 
-    document.getElementById(`fm-carousel-control-${imageId}`).classList.add('checked')
+    document.getElementById(`carousel-control-${imageId}`).classList.add('carousel__control-item--checked')
   },
   startListeners: () => {
-    const controlList = document.querySelector('.fm-carousel .control')
+    const controlList = document.querySelector('.carousel .carousel__control')
     for (const controlItem of controlList.children) {
-      const itemId = controlItem.id.replace('fm-carousel-control-', '')
+      const itemId = controlItem.id.replace('carousel-control-', '')
 
       controlItem.addEventListener('click', () => carousel.handleClickControl(itemId))
     }
   },
   startNewInterval: () => {
-    if (carousel.interval) {
-      clearInterval(carousel.interval)
+    if (carousel.changeImageInterval) {
+      clearInterval(carousel.changeImageInterval)
     }
 
-    carousel.interval = setInterval(() => {
+    const carouselImages = document.querySelector('.carousel .carousel__images')
+    carousel.changeImageInterval = setInterval(() => {
       let nextImage = carousel.currentImage+1
-      if (nextImage > 3) {
+      if (nextImage > carouselImages.children.length) {
         nextImage = 1
       }
 
