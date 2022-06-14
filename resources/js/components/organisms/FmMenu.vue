@@ -3,10 +3,10 @@
     class="fm-menu"
     :class="{'active': isShowMenu}"
   >
-    <fm-menu-logo class="logo" />
+    <fm-menu-logo class="fm-menu__logo" />
 
     <fm-menu-button
-      class="button"
+      class="fm-menu__button"
       :is-show-menu.sync="isShowMenu"
     />
 

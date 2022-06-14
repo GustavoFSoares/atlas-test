@@ -28,11 +28,11 @@
     padding: 20px 0;
   }
 
-  .logo, .button {
+  &__logo, &__button {
     z-index: 2;
   }
 
-  .button {
+  &__button {
     @include media('tablet', 'min') {
       display: none !important;
     }
