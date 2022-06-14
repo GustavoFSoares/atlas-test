@@ -23,16 +23,16 @@
 }
 
 $font-sizes: (
-  14: 1.4,
-  16: 1.6,
-  20: 2,
-  25: 2.5,
-  30: 3,
+  14: 14,
+  16: 16,
+  20: 20,
+  25: 25,
+  30: 30,
 );
 
 @each $name, $size in $font-sizes {
   .fm-font-size-#{$name} {
-    font-size: #{$size}rem;
+    font-size: #{$size}px;
     line-height: 1;
   }
 }
