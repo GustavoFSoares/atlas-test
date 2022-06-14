@@ -1,9 +1,9 @@
 <template>
-  <div class="menu-logo">
-    <h2 class="menu-logo__title">PokeAtlas</h2>
+  <div class="logo">
+    <h2 class="logo__title">PokeAtlas</h2>
 
-    <div class="menu-logo__decorator">
-      <div class="menu-logo__line" />
+    <div class="logo__decorators-wrapper">
+      <div class="logo__line" />
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
 @import "@/sass/_fonts.scss";
 @import "@/sass/_mixins.scss";
 
-.menu-logo {
+.logo {
   @extend .flex-space-between;
   gap: 19px;
 
@@ -30,7 +30,7 @@ export default {
     @extend .fm-font-weight-regular;
   }
 
-  &__decorator {
+  &__decorators-wrapper {
     width: 70px;
     @include media('tablet', 'max') {
       display: none;
@@ -38,12 +38,11 @@ export default {
 
     @extend .flex-column;
     @extend .flex-center;
-
-    .menu-logo__line {
-      border: 1px solid map-get($colors, 1);
-    }
   }
 
+  &__line {
+    border: 1px solid map-get($colors, 1);
+  }
 }
 
 </style>
