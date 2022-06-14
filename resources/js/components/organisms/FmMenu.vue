@@ -11,7 +11,7 @@
     />
 
     <div class="menu__items" @click="isShowMenu = false">
-      <div class="menu__items-container">
+      <div class="menu__container">
         <fm-menu-item
           v-for="(item, index) in menuItems"
           :key="`${index}-${item}`"
@@ -133,7 +133,7 @@ export default {
       }
     }
 
-    .menu__items-container {
+    .menu__container {
       display: flex;
       gap: 10px;
 
@@ -144,34 +144,34 @@ export default {
         gap: 30px;
         flex-direction: column;
       }
+    }
+  }
 
-      .menu__item {
-        display: flex;
+  &__item {
+    display: flex;
 
-        gap: 10px;
-        flex-direction: row;
+    gap: 10px;
+    flex-direction: row;
+
+    @include media('mobile', 'max') {
+      gap: 30px;
+      flex-direction: column;
+
+      width: 100%;
+      padding: 0 30px;
+    }
+
+    &:nth-child(odd) {
+      &:after {
+        content: '';
+        border: 1px solid map-get($colors, 1);
+
+        height: 33px;
 
         @include media('mobile', 'max') {
-          gap: 30px;
-          flex-direction: column;
-
-          width: 100%;
-          padding: 0 30px;
-        }
-
-        &:nth-child(odd) {
-          &:after {
-            content: '';
-            border: 1px solid map-get($colors, 1);
-
-            height: 33px;
-
-            @include media('mobile', 'max') {
-              height: initial;
-              margin: 0 50px;
-              opacity: 0.5;
-            }
-          }
+          height: initial;
+          margin: 0 50px;
+          opacity: 0.5;
         }
       }
     }
