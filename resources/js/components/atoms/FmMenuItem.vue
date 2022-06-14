@@ -1,14 +1,14 @@
 <template>
   <a
-    class="fm-menu-item"
+    class="menu-item"
     :href="href"
   >
-    <div class="content">
-      <component class="content__icon" :is="icon" />
+    <div class="menu-item__content">
+      <component class="menu-item__icon" :is="icon" />
 
       <span :class="[
-          'content__text',
-          { 'exact': isExact }
+          'menu-item__text',
+          { 'menu-item__text--exact': isExact }
         ]"
       >
         {{ label }}
