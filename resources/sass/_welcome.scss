@@ -10,9 +10,9 @@ body.welcome-page-background {
   @extend .flex;
   gap: 20px;
 
+  @extend .fm-mt-101;
 
   &__content {
-    @extend .fm-mt-101;
     padding: 0 20px;
 
     @include media('tablet', '>') {
