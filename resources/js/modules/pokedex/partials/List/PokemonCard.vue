@@ -6,7 +6,7 @@
 
     <div
       class="card__container"
-      :class="`fm-pokemon-color__background--${mainPokemonType}`"
+      :class="`pokemon-color__background--${mainPokemonType}`"
     >
       <div class="header">
         <span class="header__identifier">#{{ identifier }}</span>
@@ -28,7 +28,7 @@
             <div class="name">
               <h4
                 class="name__text"
-                :class="`fm-pokemon-color__text--${mainPokemonType}`"
+                :class="`pokemon-color__text--${mainPokemonType}`"
               >{{ name }}</h4>
             </div>
           </div>
