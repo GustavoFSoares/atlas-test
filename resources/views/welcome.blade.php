@@ -35,7 +35,7 @@
 <script>
 const carousel = {
   currentImage: 1,
-  interval: null,
+  changeImageInterval: null,
   handleClickControl: (imageId) => {
     carousel.startNewInterval()
     carousel.scrollCarousel(imageId)
@@ -66,12 +66,12 @@ const carousel = {
     }
   },
   startNewInterval: () => {
-    if (carousel.interval) {
-      clearInterval(carousel.interval)
+    if (carousel.changeImageInterval) {
+      clearInterval(carousel.changeImageInterval)
     }
 
     const carouselImages = document.querySelector('.carousel .carousel__images')
-    carousel.interval = setInterval(() => {
+    carousel.changeImageInterval = setInterval(() => {
       let nextImage = carousel.currentImage+1
       if (nextImage > carouselImages.children.length) {
         nextImage = 1
