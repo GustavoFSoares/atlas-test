@@ -5,7 +5,6 @@
 @section('content')
 <div class="pokeatlas-container">
   <div class="list">
-    Listagem
     <pokedex-list />
   </div>
 </div>
