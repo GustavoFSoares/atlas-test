@@ -98,7 +98,7 @@ export default {
   }
 
   &__logo, &__button {
-    z-index: 100;
+    z-index: 101;
   }
 
   &__button {
@@ -122,7 +122,7 @@ export default {
       width: 100vw;
       height: 100%;
 
-      z-index: 101;
+      z-index: 100;
       background-color: #2C2C2D;
 
       transform: translate3d(100vw, 0, 0);

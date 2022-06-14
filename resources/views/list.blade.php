@@ -3,7 +3,7 @@
 @section('class', 'pokedex-list-background')
 
 @section('content')
-<div class="container">
+<div class="pokeatlas-container">
   <div class="list">
     Listagem
     <pokedex-list />

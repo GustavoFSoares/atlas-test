@@ -1,7 +1,11 @@
 <template>
   <div class="pokedex-list">
     <div>
-      <pokemon-card />
+      <pokemon-card
+        identifier="001"
+        name="bulba"
+        :types="['fire']"
+      />
     </div>
   </div>
 </template>
