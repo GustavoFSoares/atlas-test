@@ -1,7 +1,7 @@
 <template>
   <div
-    class="fm-menu-button"
-    :class="{ 'fm-menu-button--active': isShowMenu }"
+    class="menu-button"
+    :class="{ 'menu-button--active': isShowMenu }"
     @click="handleClick"
   >
     <span />
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fm-menu-button {
+.menu-button {
   height: 20px;
   display: flex;
   flex-direction: column;
