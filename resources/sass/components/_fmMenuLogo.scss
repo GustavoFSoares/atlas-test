@@ -17,7 +17,7 @@
     @extend .flex-column;
     @extend .flex-center;
 
-    &--content {
+    &__content {
       border: 1px solid map-get($colors, 1);
     }
   }
