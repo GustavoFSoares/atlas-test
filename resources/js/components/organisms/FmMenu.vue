@@ -1,7 +1,7 @@
 <template>
   <nav
     class="fm-menu"
-    :class="{'active': isShowMenu}"
+    :class="{'fm-menu--active': isShowMenu}"
   >
     <fm-menu-logo class="fm-menu__logo" />
 
