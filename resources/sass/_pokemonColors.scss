@@ -20,7 +20,7 @@ $pokemon-types: (
 );
 
 @each $typeName, $value in $pokemon-types {
-  .fm-pokemon-color {
+  .pokemon-color {
     &__text {
       &--#{$typeName} {
         color: $value;

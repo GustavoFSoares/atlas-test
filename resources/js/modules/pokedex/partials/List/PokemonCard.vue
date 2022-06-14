@@ -6,29 +6,30 @@
 
     <div
       class="card__container"
-      :class="`fm-pokemon-color__background--${mainPokemonType}`"
+      :class="`pokemon-color__background--${mainPokemonType}`"
     >
-      <div class="header">
-        <span class="header__identifier">#{{ identifier }}</span>
+      <div class="card__header">
+        <span class="card__identifier">#{{ identifier }}</span>
       </div>
 
-      <div class="data__card">
-        <div class="data__card__container">
-          <div class="data__card__container__content">
-            <div class="types">
+      <div class="card__info">
+        <div class="info">
+          <div class="info__wrapper">
+            <div class="pokemon-types">
               <img
                 v-for="type in types"
                 :key="type"
-                class="types__item"
-                :class="`types__item--${type}`"
+                :alt="`Pokemon type:${type}`"
+                class="pokemon-types__item"
+                :class="`pokemon-types__item--${type}`"
                 :src="`/images/pokemon-types/${type}.png`"
               />
             </div>
 
-            <div class="name">
+            <div class="pokemon-name">
               <h4
-                class="name__text"
-                :class="`fm-pokemon-color__text--${mainPokemonType}`"
+                class="pokemon-name__text"
+                :class="`pokemon-color__text--${mainPokemonType}`"
               >{{ name }}</h4>
             </div>
           </div>
@@ -107,7 +108,7 @@ export default {
     border-radius: 8px;
     padding-bottom: 10px;
 
-    .header {
+    .card__header {
       height: 2.5rem;
 
       @extend .flex;
@@ -118,73 +119,69 @@ export default {
         justify-content: flex-end;
         align-items: flex-end;
       }
+    }
 
-      &__identifier {
-        @extend .fm-text-color-1;
-        @extend .fm-font-size-16;
-        @extend .fm-font-weight-regular;
+    .card__identifier {
+      @extend .fm-text-color-1;
+      @extend .fm-font-size-16;
+      @extend .fm-font-weight-regular;
 
-        margin: 3px 0 0 10px;
+      margin: 3px 0 0 10px;
 
-        @include media('tablet', 'min') {
-          margin: 0 5px 2px 0;
-        }
+      @include media('tablet', 'min') {
+        margin: 0 5px 2px 0;
       }
     }
 
-    .data__card {
+    .card__info {
       @extend .fm-background-1;
 
       @include media('mobile', 'max') {
         padding-right: 10rem;
       }
+    }
+  }
 
-      &__container {
-        padding: 10px;
+  .info {
+    padding: 10px;
 
-        &__content {
-          position: relative;
+    &__wrapper {
+      position: relative;
+      height: 4.5rem;
+      @extend .flex;
+      flex-direction: row-reverse;
+    }
 
-          @extend .flex;
-          flex-direction: row-reverse;
-          height: 4.5rem;
+    .pokemon-types {
+      @include media('tablet', 'min') {
+        position: absolute;
+        left: 0;
+      }
 
-          .types {
-            @include media('tablet', 'min') {
-              position: absolute;
-              left: 0;
-            }
+      height: 100%;
+      @extend .flex-column;
+      @extend .flex-center;
+      gap: 7px;
 
-            height: 100%;
-            @extend .flex-column;
-            @extend .flex-center;
+      &__item {
+        height: 18px;
+        @extend .flex-center-center;
+      }
+    }
 
-            gap: 7px;
+    .pokemon-name {
+      flex-grow: 1;
+      @extend .flex-align-center;
 
-            &__item {
-              height: 18px;
+      @include media('tablet', 'min') {
+        justify-content: center;
+      }
 
-              @extend .flex-center-center;
-            }
-          }
-
-          .name {
-            @extend .flex-align-center;
-
-            flex-grow: 1;
-            @include media('tablet', 'min') {
-              justify-content: center;
-            }
-
-            &__text {
-              height: 100%;
-
-              @extend .flex-align-center;
-              @extend .fm-font-size-18;
-              @extend .fm-font-weight-regular;
-            }
-          }
-        }
+      &__text {
+        height: 100%;
+        @extend .flex-align-center;
+        @extend .fm-font-size-18;
+        @extend .fm-font-weight-regular;
       }
     }
   }
