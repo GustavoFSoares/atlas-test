@@ -3,7 +3,7 @@
 @section('class', 'welcome-page-background')
 
 @section('content')
-<section class="welcome-page container">
+<section class="welcome-page pokeatlas-container">
   <div class="welcome-page__content">
     <h1 class="title">Pokedex</h1>
 

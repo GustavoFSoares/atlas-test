@@ -11,7 +11,7 @@
     />
 
     <div class="fm-menu__items" @click="isShowMenu = false">
-      <div class="container">
+      <div class="items-container">
         <fm-menu-item
           v-for="(item, index) in menuItems"
           :key="`${index}-${item}`"
@@ -19,7 +19,7 @@
           :href="item.path"
           :hash="item.id"
           :name="item.name"
-          :class="`container__item container__item--${item.name}`"
+          :class="`items-container__item items-container__item--${item.name}`"
         />
       </div>
     </div>

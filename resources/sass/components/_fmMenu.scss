@@ -12,13 +12,14 @@
 }
 
 .fm-menu {
-  @extend .container;
+  @extend .pokeatlas-container;
 
   @extend .flex-space-between;
   @extend .flex-center-center;
 
   position: relative;
   width: auto;
+  height: 60px;
 
   margin: 0 auto;
   padding: 0 20px;
@@ -63,7 +64,7 @@
       }
     }
 
-    .container {
+    .items-container {
       display: flex;
       gap: 10px;
 
