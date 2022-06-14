@@ -63,3 +63,49 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+@import "@/sass/_flex.scss";
+@import "@/sass/_colors.scss";
+@import "@/sass/_fonts.scss";
+@import "@/sass/_mixins.scss";
+
+.menu-item {
+  @include media('tablet', 'min') {
+    height: 100%;
+  }
+
+  &__content {
+    width: 100%;
+    min-width: 200px;
+
+    gap: 29px;
+
+    @extend .flex-align-center;
+
+    @include media('tablet', 'min') {
+      justify-content: center;
+    }
+
+    .menu-item__text {
+      @extend .fm-text-color-1;
+      @extend .fm-font-size-25;
+      @extend .fm-font-weight-bold;
+
+      @include media('tablet', 'min') {
+        text-align: center;
+        font-size: 16px;
+
+        &:not(&--exact) {
+          font-weight: 450;
+        }
+      }
+    }
+
+    .menu-item__icon {
+      @include media('tablet', 'min') {
+        display: none;
+      }
+    }
+  }
+}
+</style>
