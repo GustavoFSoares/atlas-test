@@ -4,7 +4,7 @@
       <pokemon-card
         identifier="001"
         name="bulba"
-        :types="['fire']"
+        :types="['bug']"
       />
     </div>
   </div>

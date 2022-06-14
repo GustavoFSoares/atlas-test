@@ -26,9 +26,10 @@ export const store = new Vuex.Store({
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-const files = require.context('./components', true, /\.vue$/i)
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// const files = require.context('./components', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('fm-menu', require('./components/organisms/FmMenu.vue').default);
 Vue.component('pokedex-list', require('./modules/pokedex/views/List.vue').default);
 
 /**

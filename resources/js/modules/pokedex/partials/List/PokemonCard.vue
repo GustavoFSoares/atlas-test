@@ -1,11 +1,11 @@
 <template>
-  <div class="pokemon-card">
-    <div class="pokemon-card__image">
+  <div class="card">
+    <div class="card__image">
       <div class="img" />
     </div>
 
     <div
-      class="pokemon-card__container"
+      class="card__container"
       :class="`fm-pokemon-color__background--${mainPokemonType}`"
     >
       <div class="header">
@@ -19,7 +19,8 @@
               <img
                 v-for="type in types"
                 :key="type"
-                class="types__item types__item"
+                class="types__item"
+                :class="`types__item--${type}`"
                 :src="`/images/pokemon-types/${type}.png`"
               />
             </div>
@@ -73,7 +74,7 @@ export default {
 @import "@/sass/_colors.scss";
 @import "@/sass/_mixins.scss";
 
-.pokemon-card {
+.card {
   position: relative;
   @extend .flex-column;
 
@@ -102,9 +103,8 @@ export default {
     }
   }
 
-  &__container{
+  &__container {
     border-radius: 8px;
-
     padding-bottom: 10px;
 
     .header {
