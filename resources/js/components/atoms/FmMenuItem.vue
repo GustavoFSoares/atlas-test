@@ -1,15 +1,14 @@
 <template>
   <a
-    class="menu-item"
+    class="item"
     :href="href"
   >
-    <div class="menu-item__content">
-      <component class="menu-item__icon" :is="icon" />
+    <div class="item__content">
+      <component class="item__icon" :is="icon" />
 
-      <span :class="[
-          'menu-item__text',
-          { 'menu-item__text--exact': isExact }
-        ]"
+      <span
+        class="item__text"
+        :class="{'item__text--exact': isExact }"
       >
         {{ label }}
       </span>
@@ -69,7 +68,7 @@ export default {
 @import "@/sass/_fonts.scss";
 @import "@/sass/_mixins.scss";
 
-.menu-item {
+.item {
   @include media('tablet', 'min') {
     height: 100%;
   }
@@ -85,26 +84,26 @@ export default {
     @include media('tablet', 'min') {
       justify-content: center;
     }
+  }
 
-    .menu-item__text {
-      @extend .fm-text-color-1;
-      @extend .fm-font-size-25;
-      @extend .fm-font-weight-bold;
+  &__text {
+    @extend .fm-text-color-1;
+    @extend .fm-font-size-25;
+    @extend .fm-font-weight-bold;
 
-      @include media('tablet', 'min') {
-        text-align: center;
-        font-size: 16px;
+    @include media('tablet', 'min') {
+      text-align: center;
+      font-size: 16px;
 
-        &:not(&--exact) {
-          font-weight: 450;
-        }
+      &:not(&--exact) {
+        font-weight: 450;
       }
     }
+  }
 
-    .menu-item__icon {
-      @include media('tablet', 'min') {
-        display: none;
-      }
+  &__icon {
+    @include media('tablet', 'min') {
+      display: none;
     }
   }
 }
