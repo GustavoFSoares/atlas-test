@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
-@section('class', 'welcome-page-background')
+@section('class', 'welcome-background')
 
 @section('content')
-<section class="welcome-page pokeatlas-container">
-  <div class="welcome-page__content">
-    <h1 class="welcome-page__title">Pokedex</h1>
+<section class="welcome pokeatlas-container">
+  <div class="welcome__content">
+    <h1 class="welcome__title">Pokedex</h1>
 
-    <h3 class="welcome-page__description">
+    <h3 class="welcome__description">
       Use the Advanced Search to explore Pokémon by type, weakness, Ability, and more! Search for a Pokémon by name or using its National Pokédex number.
     </h3>
 
-    <div class="welcome-page__button-container">
-      <a class="fm-button" href="list">Seach Pokemon</a>
+    <div class="welcome__button-container">
+      <a class="welcome-button" href="list">Seach Pokemon</a>
     </div>
   </div>
 
-  <div class="welcome-page__carousel carousel">
+  <div class="welcome__carousel carousel">
     <div class="carousel__images">
       <img id="carousel-image-1" class="carousel__image-item carousel__image-item--1" src="{{URL::asset('/images/carousel/1.png')}}" alt="Venusaur">
       <img id="carousel-image-2" class="carousel__image-item carousel__image-item--2" src="{{URL::asset('/images/carousel/2.png')}}" alt="Charizard">
