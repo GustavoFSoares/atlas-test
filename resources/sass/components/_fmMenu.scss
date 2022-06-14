@@ -93,7 +93,7 @@
         &:nth-child(odd) {
           &:after {
             content: '';
-            border: 1px solid #FFFFFF;
+            border: 1px solid map-get($colors, 1);
 
             height: 33px;
 
