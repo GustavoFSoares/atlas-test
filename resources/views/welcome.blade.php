@@ -5,13 +5,13 @@
 @section('content')
 <section class="welcome-page pokeatlas-container">
   <div class="welcome-page__content">
-    <h1 class="title">Pokedex</h1>
+    <h1 class="welcome-page__title">Pokedex</h1>
 
-    <h3 class="description">
+    <h3 class="welcome-page__description">
       Use the Advanced Search to explore Pokémon by type, weakness, Ability, and more! Search for a Pokémon by name or using its National Pokédex number.
     </h3>
 
-    <div class="button-container">
+    <div class="welcome-page__button-container">
       <a class="fm-button" href="list">Seach Pokemon</a>
     </div>
   </div>
