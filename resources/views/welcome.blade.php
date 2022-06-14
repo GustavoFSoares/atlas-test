@@ -18,9 +18,9 @@
 
   <div class="welcome-page__carousel fm-carousel">
     <div class="images">
-      <img id="fm-carousel-image-1" class="images__item images__item--1" src="{{URL::asset('/img/carousel/1.png')}}" alt="fm-carousel-1">
-      <img id="fm-carousel-image-2" class="images__item images__item--2" src="{{URL::asset('/img/carousel/2.png')}}" alt="fm-carousel-2">
-      <img id="fm-carousel-image-3" class="images__item images__item--3" src="{{URL::asset('/img/carousel/3.png')}}" alt="fm-carousel-3">
+      <img id="fm-carousel-image-1" class="images__item images__item--1" src="{{URL::asset('/images/carousel/1.png')}}" alt="fm-carousel-1">
+      <img id="fm-carousel-image-2" class="images__item images__item--2" src="{{URL::asset('/images/carousel/2.png')}}" alt="fm-carousel-2">
+      <img id="fm-carousel-image-3" class="images__item images__item--3" src="{{URL::asset('/images/carousel/3.png')}}" alt="fm-carousel-3">
     </div>
 
     <div class="control">
