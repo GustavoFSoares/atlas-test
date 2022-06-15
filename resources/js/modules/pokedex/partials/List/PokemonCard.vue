@@ -12,7 +12,7 @@
       :class="`pokemon-color__background--${mainPokemonType}`"
     >
       <div class="card__header">
-        <span class="card__identifier">#{{ identifier | idNormalizer }}</span>
+        <span class="card__identifier">{{ identifier | idNormalizer }}</span>
       </div>
 
       <div class="info">
@@ -45,11 +45,6 @@
 <script>
 export default {
   name: 'pokemon-card',
-  filters: {
-    idNormalizer(val) {
-      return val.padStart(3, '0')
-    }
-  },
   props: {
     identifier: {
       type: String,

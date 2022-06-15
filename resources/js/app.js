@@ -33,6 +33,9 @@ Vue.component('fm-menu', require('./components/organisms/FmMenu.vue').default);
 Vue.component('pokedex-list', require('./modules/pokedex/views/List.vue').default);
 Vue.component('pokedex-profile', require('./modules/pokedex/views/Profile.vue').default);
 
+Vue.filter('idNormalizer', (val) => {
+  return '#'+val.toString().padStart(3, '0')
+})
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

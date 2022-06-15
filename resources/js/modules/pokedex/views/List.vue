@@ -1,5 +1,5 @@
 <template>
-  <div class="pokedex-list">
+  <section class="pokedex-list">
     <div class="pokedex-list__inputs-wrapper">
       <fm-input
         class="pokedex-list__input"
@@ -29,7 +29,7 @@
         :types="pokemon.types"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
