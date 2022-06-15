@@ -4,7 +4,7 @@ export default {
   async loadPokemonData({ dispatch, getters, commit }) {
     const { data } = await axios.get(`${getters.apiUrl}/pokemon`, {
       params: {
-        limit: 548,
+        limit: 600,
       }
     })
 
@@ -23,9 +23,21 @@ export default {
     commit("STORE_POKEMONS", mappedPokemons);
 
     mappedPokemons.forEach(pokemon => {
-      dispatch('getPokemonData', pokemon)
+      dispatch('tryGetPokemonData', pokemon)
     });
+  },
+  async tryGetPokemonData({ dispatch }, pokemon) {
+    try {
+      await dispatch("getPokemonData", pokemon);
+    } catch (e) {
+      if (!pokemon.tried) {
+        console.info('Tring get pokemon again.', pokemon.id);
+        return await dispatch("tryGetPokemonData", { ...pokemon, tried: true });
+      }
 
+      console.error("Error loading pokemon data.", pokemon.id);
+      throw e
+    }
   },
   async getPokemonData({ getters, commit }, { id }) {
     const { data } = await axios.get(`${getters.apiUrl}/pokemon/${id}`);

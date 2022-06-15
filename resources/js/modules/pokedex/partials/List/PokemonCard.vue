@@ -191,6 +191,11 @@ $transitionDuration: 2s;
         @extend .fm-font-size-18;
         @extend .fm-font-weight-regular;
         transition: color $transitionDuration ease;
+
+        @include media('tablet', 'min') {
+          padding: 0 20px;
+          text-align: center;
+        }
       }
     }
   }
