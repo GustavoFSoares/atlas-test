@@ -50,14 +50,6 @@ export default {
       }
     }
   },
-  // watch: {
-  //   filters: {
-  //     deep: true,
-  //     handler() {
-  //       this.getPokemons()
-  //     }
-  //   }
-  // },
   computed: {
     ...mapState('PokemonApi', ['pokemons']),
     filteredPokemons() {
@@ -93,15 +85,16 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/sass/_flex.scss";
-@import "@/sass/_colors.scss";
 @import "@/sass/_mixins.scss";
 
 .pokedex-list {
   @extend .flex-column;
 
   gap: 30px;
+  margin-bottom: 20px;
   @include media('tablet', 'min') {
     gap: 20px;
+    margin-bottom: 93px;
   }
 
   &__inputs-wrapper {
