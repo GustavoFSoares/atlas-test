@@ -3,12 +3,11 @@ export default {
     state.pokemons = pokemons;
   },
   STORE_SPECIFIC_POKEMONS(state, { id, ...pokemonData }) {
-    const pokemon = state.pokemons[id - 1];
+    let pokemon = state.pokemons.find(pokemon => pokemon.id === id);
 
-    if (pokemon.id.toString() !== id.toString()) {
-      throw new Error(
-        `Pokemon isn't the same. finded: "${pokemon.id}" pokemon: "${id}"`
-      );
+    if (!pokemon) {
+      pokemon = { id, ...pokemonData };
+      state.pokemons.push(pokemon)
     }
 
     pokemon.types = pokemonData.types;

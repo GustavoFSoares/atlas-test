@@ -1,4 +1,4 @@
 export default {
-  pokemons: null,
-  types: null,
+  pokemons: [],
+  types: [],
 };

@@ -47,7 +47,7 @@ export default {
   name: 'pokemon-card',
   props: {
     identifier: {
-      type: String,
+      type: [String, Number],
       required: true
     },
     name: {
