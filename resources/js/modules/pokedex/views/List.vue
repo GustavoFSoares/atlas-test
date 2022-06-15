@@ -9,12 +9,13 @@
         v-model="filters.search"
       />
 
-      <fm-input
+      <fm-select
         class="pokedex-list__input"
         placeholder="Show All"
         icon="chevron-down"
         type="number"
-        v-model="filters.limit"
+        v-model="filters.type"
+        :options="types"
       />
     </div>
 
@@ -34,24 +35,26 @@
 <script>
 import { mapState } from 'vuex'
 import FmInput from '@/js/components/atoms/FmInput.vue'
+import FmSelect from '@/js/components/atoms/FmSelect.vue'
 import PokemonCard from '../partials/List/PokemonCard.vue'
 
 export default {
   name: 'pokedex-list',
   components: {
     FmInput,
+    FmSelect,
     PokemonCard
   },
   data() {
     return {
       filters: {
         search: null,
-        limit: null
+        type: null
       }
     }
   },
   computed: {
-    ...mapState('PokemonApi', ['pokemons']),
+    ...mapState('PokemonApi', ['pokemons', 'types']),
     filteredPokemons() {
       if (!this.pokemons) {
         return null
@@ -65,8 +68,10 @@ export default {
         })
       }
 
-      if (this.filters.limit) {
-        filteredPokemons = filteredPokemons.splice(0, this.filters.limit)
+      if (this.filters.type) {
+        filteredPokemons = filteredPokemons.filter(({ types }) => {
+          return types.includes(this.filters.type)
+        })
       }
 
       return filteredPokemons
@@ -75,10 +80,14 @@ export default {
   methods: {
     getPokemons() {
       this.$store.dispatch('PokemonApi/loadPokemonData')
-    }
+    },
+    getPokemonTypes() {
+      this.$store.dispatch('PokemonApi/loadPokemonTypes')
+    },
   },
   mounted() {
     this.getPokemons()
+    this.getPokemonTypes()
   }
 }
 </script>

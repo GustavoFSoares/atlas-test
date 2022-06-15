@@ -26,6 +26,12 @@ export default {
       dispatch('tryGetPokemonData', pokemon)
     });
   },
+  async loadPokemonTypes({ getters, commit }) {
+    const { data } = await axios.get(`${getters.apiUrl}/type`);
+
+    const mappedTypes = data.results.map(pokemonType => pokemonType.name)
+    commit("STORE_POKEMON_TYPES", mappedTypes);
+  },
   async tryGetPokemonData({ dispatch }, pokemon) {
     try {
       await dispatch("getPokemonData", pokemon);
