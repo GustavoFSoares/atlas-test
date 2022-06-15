@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card__image">
-      <div class="img" />
+      <img :src="image" :alt="name" />
     </div>
 
     <div
@@ -9,7 +9,7 @@
       :class="`pokemon-color__background--${mainPokemonType}`"
     >
       <div class="card__header">
-        <span class="card__identifier">#{{ identifier }}</span>
+        <span class="card__identifier">#{{ identifier | idNormalizer }}</span>
       </div>
 
       <div class="card__info">
@@ -42,6 +42,11 @@
 <script>
 export default {
   name: 'pokemon-card',
+  filters: {
+    idNormalizer(val) {
+      return val.padStart(3, '0')
+    }
+  },
   props: {
     identifier: {
       type: String,
@@ -53,7 +58,7 @@ export default {
     },
     types: {
       type: Array,
-      required: true
+      default: () => []
     },
     image: {
       type: String
@@ -63,7 +68,7 @@ export default {
     mainPokemonType() {
       const [mainType] = this.types
 
-      return mainType
+      return mainType || 'no-defined'
     }
   }
 }
@@ -74,6 +79,8 @@ export default {
 @import "@/sass/_fonts.scss";
 @import "@/sass/_colors.scss";
 @import "@/sass/_mixins.scss";
+
+$transitionDuration: 2s;
 
 .card {
   position: relative;
@@ -96,7 +103,7 @@ export default {
       justify-content: center;
     }
 
-    .img {
+    img {
       width: 10rem;
       height: 10rem;
 
@@ -107,6 +114,7 @@ export default {
   &__container {
     border-radius: 8px;
     padding-bottom: 10px;
+    transition: background-color $transitionDuration ease;
 
     .card__header {
       height: 2.5rem;
@@ -182,6 +190,7 @@ export default {
         @extend .flex-align-center;
         @extend .fm-font-size-18;
         @extend .fm-font-weight-regular;
+        transition: color $transitionDuration ease;
       }
     }
   }
