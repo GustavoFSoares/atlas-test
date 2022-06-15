@@ -9,13 +9,13 @@ require('./bootstrap');
 import Vue from 'vue';
 import Vuex from 'vuex'
 
-import Example from './store/example/modules/example';
+import PokemonApi from "./store/modules/PokemonApi";
 
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   modules: {
-    Example,
+    PokemonApi
   }
 })
 /**
