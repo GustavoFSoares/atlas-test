@@ -1,11 +1,10 @@
 import axios from 'axios'
 
 export default {
-  async getPokemons({ dispatch, getters, commit }, { limit, search }) {
+  async loadPokemonData({ dispatch, getters, commit }) {
     const { data } = await axios.get(`${getters.apiUrl}/pokemon`, {
       params: {
-        limit,
-        search
+        limit: 548,
       }
     })
 

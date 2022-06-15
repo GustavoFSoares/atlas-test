@@ -20,7 +20,7 @@
 
     <div class="pokedex-list__pokemons-list">
       <pokemon-card
-        v-for="pokemon in pokemons"
+        v-for="pokemon in filteredPokemons"
         :key="pokemon.id"
         :identifier="pokemon.id"
         :name="pokemon.name"
@@ -50,20 +50,39 @@ export default {
       }
     }
   },
-  watch: {
-    filters: {
-      deep: true,
-      handler() {
-        this.getPokemons()
-      }
-    }
-  },
+  // watch: {
+  //   filters: {
+  //     deep: true,
+  //     handler() {
+  //       this.getPokemons()
+  //     }
+  //   }
+  // },
   computed: {
-    ...mapState('PokemonApi', ['pokemons'])
+    ...mapState('PokemonApi', ['pokemons']),
+    filteredPokemons() {
+      if (!this.pokemons) {
+        return null
+      }
+
+      let filteredPokemons = [...this.pokemons]
+
+      if (this.filters.search) {
+        filteredPokemons = filteredPokemons.filter(({ name }) => {
+          return name.includes(this.filters.search)
+        })
+      }
+
+      if (this.filters.limit) {
+        filteredPokemons = filteredPokemons.splice(0, this.filters.limit)
+      }
+
+      return filteredPokemons
+    }
   },
   methods: {
     getPokemons() {
-      this.$store.dispatch('PokemonApi/getPokemons', this.filters)
+      this.$store.dispatch('PokemonApi/loadPokemonData')
     }
   },
   mounted() {
