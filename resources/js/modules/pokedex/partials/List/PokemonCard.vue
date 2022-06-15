@@ -12,23 +12,23 @@
         <span class="card__identifier">#{{ identifier | idNormalizer }}</span>
       </div>
 
-      <div class="card__info">
-        <div class="info">
+      <div class="info">
+        <div class="info__container">
           <div class="info__wrapper">
-            <div class="pokemon-types">
+            <div class="info__pokemon-types">
               <img
                 v-for="type in types"
                 :key="type"
                 :alt="`Pokemon type:${type}`"
-                class="pokemon-types__item"
-                :class="`pokemon-types__item--${type}`"
+                class="info__pokemon-types-item"
+                :class="`info__pokemon-types-item--${type}`"
                 :src="`/images/pokemon-types/${type}.png`"
               />
             </div>
 
-            <div class="pokemon-name">
+            <div class="info__pokemon-name">
               <h4
-                class="pokemon-name__text"
+                class="info__pokemon-name-text"
                 :class="`pokemon-color__text--${mainPokemonType}`"
               >{{ name }}</h4>
             </div>
@@ -140,18 +140,18 @@ $transitionDuration: 2s;
         margin: 0 5px 2px 0;
       }
     }
-
-    .card__info {
-      @extend .fm-background-1;
-
-      @include media('mobile', 'max') {
-        padding-right: 10rem;
-      }
-    }
   }
 
   .info {
-    padding: 10px;
+    @extend .fm-background-1;
+
+    @include media('mobile', 'max') {
+      padding-right: 10rem;
+    }
+
+    &__container {
+      padding: 10px;
+    }
 
     &__wrapper {
       position: relative;
@@ -160,7 +160,7 @@ $transitionDuration: 2s;
       flex-direction: row-reverse;
     }
 
-    .pokemon-types {
+    &__pokemon-types {
       @include media('tablet', 'min') {
         position: absolute;
         left: 0;
@@ -171,13 +171,13 @@ $transitionDuration: 2s;
       @extend .flex-center;
       gap: 7px;
 
-      &__item {
+      &-item {
         height: 18px;
         @extend .flex-center-center;
       }
     }
 
-    .pokemon-name {
+    &__pokemon-name {
       flex-grow: 1;
       @extend .flex-align-center;
 
@@ -185,7 +185,7 @@ $transitionDuration: 2s;
         justify-content: center;
       }
 
-      &__text {
+      &-text {
         height: 100%;
         @extend .flex-align-center;
         @extend .fm-font-size-18;
