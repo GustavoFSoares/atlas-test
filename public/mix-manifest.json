@@ -1,6 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/images/pokemons-background.png": "/images/pokemons-background.png",
-    "/images/welcome-background.png": "/images/welcome-background.png"
+    "/images/home-background.png": "/images/home-background.png",
+    "/images/pokemons-background.png": "/images/pokemons-background.png"
 }

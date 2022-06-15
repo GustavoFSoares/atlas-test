@@ -21,8 +21,8 @@
 @import './components/fmCarousel';
 
 // Pages
-@import 'welcome';
-@import './views/_pokedexList.scss';
+@import './views/home';
+@import './views/pokedexList.scss';
 
 .fm-cate{
   font-size: 100px;
