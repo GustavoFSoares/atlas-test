@@ -1,5 +1,8 @@
 <template>
-  <div class="card">
+  <a
+    class="card"
+    :href="`/list/${identifier}`"
+  >
     <div class="card__image">
       <img :src="image" :alt="name" />
     </div>
@@ -36,7 +39,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
