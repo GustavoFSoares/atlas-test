@@ -171,7 +171,7 @@ export default {
       gap: 5px;
 
       img {
-        width: 10px;
+        width: 18px;
       }
     }
   }
