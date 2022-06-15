@@ -1,41 +1,38 @@
 <template>
   <div class="pokedex-list">
     <div class="pokedex-list__inputs-wrapper">
-      <fm-input class="pokedex-list__input" placeholder="Search" v-model="filters.search" icon="magnifier" />
-      <fm-input class="pokedex-list__input" placeholder="Show All" v-model="filters.showAll" icon="chevron-down" />
+      <fm-input
+        class="pokedex-list__input"
+        placeholder="Search"
+        icon="magnifier"
+        type="text"
+        v-model="filters.search"
+      />
+
+      <fm-input
+        class="pokedex-list__input"
+        placeholder="Show All"
+        icon="chevron-down"
+        type="number"
+        v-model="filters.limit"
+      />
     </div>
 
     <div class="pokedex-list__pokemons-list">
       <pokemon-card
-        identifier="001"
-        name="bulba"
-        :types="['bug']"
-      />
-      <pokemon-card
-        identifier="001"
-        name="bulba"
-        :types="['bug']"
-      />
-      <pokemon-card
-        identifier="001"
-        name="bulba"
-        :types="['bug']"
-      />
-      <pokemon-card
-        identifier="001"
-        name="bulba"
-        :types="['bug']"
-      />
-      <pokemon-card
-        identifier="001"
-        name="bulba"
-        :types="['bug']"
+        v-for="pokemon in pokemons"
+        :key="pokemon.id"
+        :identifier="pokemon.id"
+        :name="pokemon.name"
+        :image="pokemon.image"
+        :types="pokemon.types"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import FmInput from '@/js/components/atoms/FmInput.vue'
 import PokemonCard from '../partials/List/PokemonCard.vue'
 
@@ -48,10 +45,30 @@ export default {
   data() {
     return {
       filters: {
-        search: ''
+        search: null,
+        limit: null
       }
     }
   },
+  watch: {
+    filters: {
+      deep: true,
+      handler() {
+        this.getPokemons()
+      }
+    }
+  },
+  computed: {
+    ...mapState('PokemonApi', ['pokemons'])
+  },
+  methods: {
+    getPokemons() {
+      this.$store.dispatch('PokemonApi/getPokemons', this.filters)
+    }
+  },
+  mounted() {
+    this.getPokemons()
+  }
 }
 </script>
 
@@ -84,17 +101,16 @@ export default {
     }
   }
 
-  &__input {
-    @include media('tablet', 'min') {
-      width: 200px;
-    }
-  }
-
   &__pokemons-list {
     display: grid;
     gap: 15px;
 
     @include media('tablet', 'min') {
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    @include media('tablet', '>') {
       grid-template-columns: repeat(4,1fr);
       gap: 20px;
     }
