@@ -23,7 +23,7 @@ Route::get('/list',function(){
 });
 
 
-Route::get('/breeds/{id}',function($id){
+Route::get('/list/{id}',function($id){
   return view('breeds', compact("id"));
 });
 

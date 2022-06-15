@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('class', 'pokedex-list-background')
+@section('class', 'pokedex-background')
 
 @section('content')
 <div class="pokeatlas-container">

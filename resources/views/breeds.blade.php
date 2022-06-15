@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
+@section('class', 'pokedex-background')
+
 @section('content')
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="fm-cate">
-      Tela breeds id {{$id}}
-    </div>
+<div class="pokeatlas-container">
+  <div class="list">
+    <pokedex-profile :pokemon-id="{{$id}}"/>
   </div>
 </div>
 @endsection
