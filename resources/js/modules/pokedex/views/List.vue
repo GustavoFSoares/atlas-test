@@ -97,6 +97,12 @@ export default {
     margin-bottom: 93px;
   }
 
+  &__input {
+    @include media('tablet', 'min') {
+      width: 200px;
+    }
+  }
+
   &__inputs-wrapper {
     margin-top: 23px;
 

@@ -72,7 +72,7 @@ export default {
   &__element {
     width: 100%;
     border: none;
-    padding: 9px 18px;
+    padding: 8px 18px;
     border-radius: 100px;
     line-height: 12px;
     font-size: 10px;
