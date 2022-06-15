@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card__image">
-      <div class="img" />
+      <img :src="image" :alt="name" />
     </div>
 
     <div
@@ -9,26 +9,26 @@
       :class="`pokemon-color__background--${mainPokemonType}`"
     >
       <div class="card__header">
-        <span class="card__identifier">#{{ identifier }}</span>
+        <span class="card__identifier">#{{ identifier | idNormalizer }}</span>
       </div>
 
-      <div class="card__info">
-        <div class="info">
+      <div class="info">
+        <div class="info__container">
           <div class="info__wrapper">
-            <div class="pokemon-types">
+            <div class="info__pokemon-types">
               <img
                 v-for="type in types"
                 :key="type"
                 :alt="`Pokemon type:${type}`"
-                class="pokemon-types__item"
-                :class="`pokemon-types__item--${type}`"
+                class="info__pokemon-types-item"
+                :class="`info__pokemon-types-item--${type}`"
                 :src="`/images/pokemon-types/${type}.png`"
               />
             </div>
 
-            <div class="pokemon-name">
+            <div class="info__pokemon-name">
               <h4
-                class="pokemon-name__text"
+                class="info__pokemon-name-text"
                 :class="`pokemon-color__text--${mainPokemonType}`"
               >{{ name }}</h4>
             </div>
@@ -42,6 +42,11 @@
 <script>
 export default {
   name: 'pokemon-card',
+  filters: {
+    idNormalizer(val) {
+      return val.padStart(3, '0')
+    }
+  },
   props: {
     identifier: {
       type: String,
@@ -53,7 +58,7 @@ export default {
     },
     types: {
       type: Array,
-      required: true
+      default: () => []
     },
     image: {
       type: String
@@ -63,7 +68,7 @@ export default {
     mainPokemonType() {
       const [mainType] = this.types
 
-      return mainType
+      return mainType || 'no-defined'
     }
   }
 }
@@ -74,6 +79,8 @@ export default {
 @import "@/sass/_fonts.scss";
 @import "@/sass/_colors.scss";
 @import "@/sass/_mixins.scss";
+
+$transitionDuration: 2s;
 
 .card {
   position: relative;
@@ -96,7 +103,7 @@ export default {
       justify-content: center;
     }
 
-    .img {
+    img {
       width: 10rem;
       height: 10rem;
 
@@ -107,6 +114,7 @@ export default {
   &__container {
     border-radius: 8px;
     padding-bottom: 10px;
+    transition: background-color $transitionDuration ease;
 
     .card__header {
       height: 2.5rem;
@@ -132,18 +140,18 @@ export default {
         margin: 0 5px 2px 0;
       }
     }
-
-    .card__info {
-      @extend .fm-background-1;
-
-      @include media('mobile', 'max') {
-        padding-right: 10rem;
-      }
-    }
   }
 
   .info {
-    padding: 10px;
+    @extend .fm-background-1;
+
+    @include media('mobile', 'max') {
+      padding-right: 10rem;
+    }
+
+    &__container {
+      padding: 10px;
+    }
 
     &__wrapper {
       position: relative;
@@ -152,7 +160,7 @@ export default {
       flex-direction: row-reverse;
     }
 
-    .pokemon-types {
+    &__pokemon-types {
       @include media('tablet', 'min') {
         position: absolute;
         left: 0;
@@ -163,13 +171,13 @@ export default {
       @extend .flex-center;
       gap: 7px;
 
-      &__item {
+      &-item {
         height: 18px;
         @extend .flex-center-center;
       }
     }
 
-    .pokemon-name {
+    &__pokemon-name {
       flex-grow: 1;
       @extend .flex-align-center;
 
@@ -177,11 +185,17 @@ export default {
         justify-content: center;
       }
 
-      &__text {
+      &-text {
         height: 100%;
         @extend .flex-align-center;
         @extend .fm-font-size-18;
         @extend .fm-font-weight-regular;
+        transition: color $transitionDuration ease;
+
+        @include media('tablet', 'min') {
+          padding: 0 20px;
+          text-align: center;
+        }
       }
     }
   }

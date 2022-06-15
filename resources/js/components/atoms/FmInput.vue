@@ -2,7 +2,7 @@
   <div class="input">
     <input
       class="input__element"
-      type="text"
+      :type="type"
       :value="value"
       :placeholder="placeholder"
       @input="handleInput"
@@ -38,6 +38,10 @@ export default {
     icon: {
       type: String,
       defualt: null
+    },
+    type: {
+      type: String,
+      defualt: 'text'
     }
   },
   computed: {
@@ -68,7 +72,7 @@ export default {
   &__element {
     width: 100%;
     border: none;
-    padding: 9px 18px;
+    padding: 8px 18px;
     border-radius: 100px;
     line-height: 12px;
     font-size: 10px;
@@ -78,6 +82,16 @@ export default {
 
     &::placeholder {
       color: #cccccc;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type=number] {
+      -moz-appearance:textfield; /* Firefox */
     }
 
     &:focus-visible,
