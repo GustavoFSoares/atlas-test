@@ -29,6 +29,7 @@ $font-sizes: (
   20: 20,
   25: 25,
   30: 30,
+  45: 45,
 );
 
 @each $name, $size in $font-sizes {
