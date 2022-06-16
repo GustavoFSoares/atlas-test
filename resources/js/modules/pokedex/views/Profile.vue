@@ -1,5 +1,5 @@
 <template>
-  <section class="pokedex-profile fm-text-color-1">
+  <section class="pokedex-profile">
     <div class="pokedex-profile__showcase">
       <img
         class="pokedex-profile__image"
@@ -10,13 +10,31 @@
       <h1 class="pokedex-profile__name">{{pokemonId | idNormalizer }} {{ pokemon.name }}</h1>
     </div>
 
-    <div class="pokedex-profile__stats"></div>
+    <div class="pokedex-profile__stats">
+      <pokemon-statistics
+        :types="pokemon.types"
+        :stats="pokemon.stats"
+        :descriptions="pokemon.flavorTexts"
+      />
+    </div>
+
+    <profile-background
+      class="pokedex-profile__background-decorator"
+      :main-pokemon-type="mainPokemonType"
+    />
   </section>
 </template>
 
 <script>
+import PokemonStatistics from "@/js/modules/pokedex/partials/Profile/PokemonStatistics.vue";
+import ProfileBackground from "@/js/modules/pokedex/decorators/Profile/ProfileBackground.vue";
+
 export default {
   name: 'pokedex-profile',
+  components: {
+    PokemonStatistics,
+    ProfileBackground,
+  },
   props: {
     pokemonId: {
       type: Number,
@@ -27,6 +45,17 @@ export default {
     return {
       pokemon: {}
     }
+  },
+  computed: {
+    mainPokemonType() {
+      if (!this.pokemon || !this.pokemon.types) {
+        return 'no-defined'
+      }
+
+      const [mainType] = this.pokemon.types
+
+      return mainType || 'no-defined'
+    },
   },
   methods: {
     async getPokemon() {
@@ -50,10 +79,11 @@ export default {
   @extend .flex;
 
   gap: 40px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+
   @include media('tablet', 'min') {
     gap: 20px;
-    margin-bottom: 93px;
+    margin-top: 13px;
   }
 
   &__showcase {
@@ -67,6 +97,18 @@ export default {
     @extend .fm-text-color-1;
     @extend .fm-font-size-45;
     @extend .fm-font-weight-bold;
+    text-transform: capitalize;
+  }
+
+  &__stats {
+    width: 100%;
+  }
+
+  &__background-decorator {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
   }
 }
 </style>

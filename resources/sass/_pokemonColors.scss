@@ -33,5 +33,17 @@ $pokemon-types: (
         background-color: $value;
       }
     }
+
+    &__border {
+      &--#{$typeName} {
+        border-color: $value;
+      }
+    }
+
+    &__icon {
+      &--#{$typeName} {
+        fill: $value;
+      }
+    }
   }
 }
