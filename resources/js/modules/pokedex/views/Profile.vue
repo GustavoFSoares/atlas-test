@@ -8,6 +8,11 @@
       >
 
       <h1 class="pokedex-profile__name">{{pokemonId | idNormalizer }} {{ pokemon.name }}</h1>
+
+      <profile-background
+        class="pokedex-profile__background-decorator"
+        :main-pokemon-type="mainPokemonType"
+      />
     </div>
 
     <div class="pokedex-profile__stats">
@@ -17,11 +22,6 @@
         :descriptions="pokemon.flavorTexts"
       />
     </div>
-
-    <profile-background
-      class="pokedex-profile__background-decorator"
-      :main-pokemon-type="mainPokemonType"
-    />
   </section>
 </template>
 
@@ -78,30 +78,50 @@ export default {
 .pokedex-profile {
   @extend .flex;
 
-  gap: 40px;
   margin-top: 10px;
+  flex-direction: column;
 
   @include media('tablet', 'min') {
     gap: 20px;
     margin-top: 13px;
+    flex-direction: row;
+
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &__showcase {
     @extend .flex-column;
-    @extend .flex-center;
+    @extend .flex-center-center;
     gap: 16px;
+
+    position: relative;
+    @include media('tablet', 'min') {
+      width: 100%;
+      position: initial;
+    }
+  }
+
+  &__image {
+    width: 200px;
+
+    @include media('tablet', 'min') {
+      width: 362px;
+    }
   }
 
   &__name {
+    padding: 9px 0;
+    font-size: 30px;
     @extend .flex-center;
     @extend .fm-text-color-1;
-    @extend .fm-font-size-45;
     @extend .fm-font-weight-bold;
     text-transform: capitalize;
-  }
 
-  &__stats {
-    width: 100%;
+    @include media('tablet', 'min') {
+      font-size: 45px;
+    }
   }
 
   &__background-decorator {
