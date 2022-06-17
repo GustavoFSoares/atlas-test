@@ -29,6 +29,13 @@
         :types="pokemon.types"
       />
     </div>
+
+      <img
+        v-show="loading"
+        class="pokedex-list__loading-pokeball"
+        src="/images/loading-pokeball.gif"
+        alt="Loading Pokeball"
+      />
   </section>
 </template>
 
@@ -54,7 +61,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('PokemonApi', ['pokemons', 'types']),
+    ...mapState('PokemonApi', ['pokemons', 'types', 'loading']),
     filteredPokemons() {
       if (!this.pokemons) {
         return null
@@ -78,16 +85,24 @@ export default {
     }
   },
   methods: {
-    getPokemons() {
-      this.$store.dispatch('PokemonApi/loadPokemonData')
+    getPokemons(seccondLoad = false) {
+      this.$store.dispatch('PokemonApi/loadPokemonData', { seccondLoad })
     },
     getPokemonTypes() {
       this.$store.dispatch('PokemonApi/loadPokemonTypes')
     },
+    startEndScrollListener() {
+      window.addEventListener('scroll', () => {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+          this.getPokemons(true)
+        }
+      })
+    }
   },
   mounted() {
     this.getPokemons()
     this.getPokemonTypes()
+    this.startEndScrollListener()
   }
 }
 </script>
@@ -141,6 +156,13 @@ export default {
       grid-template-columns: repeat(4,1fr);
       gap: 20px;
     }
+  }
+
+  &__loading-pokeball {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 80px;
   }
 }
 </style>

@@ -1,10 +1,21 @@
 import axios from 'axios'
 
 export default {
-  async loadPokemonData({ dispatch, getters, commit }) {
+  async loadPokemonData({ dispatch, getters, commit, state }, { seccondLoad }) {
+    if (state.loading) {
+      return
+    }
+    dispatch('setLoading', true)
+
+    let offset = null
+    if (seccondLoad) {
+      offset = state.pokemons.length
+    }
+
     const { data } = await axios.get(`${getters.apiUrl}/pokemon`, {
       params: {
-        limit: 600,
+        offset,
+        limit: 151,
       }
     })
 
@@ -21,6 +32,10 @@ export default {
     });
 
     commit("STORE_POKEMONS", mappedPokemons);
+
+    setTimeout(() => {
+      dispatch("setLoading", false);
+    }, 2000)
 
     mappedPokemons.forEach(pokemon => {
       dispatch('tryGetPokemonData', pokemon)
@@ -78,5 +93,8 @@ export default {
     };
 
     return pokemon
+  },
+  setLoading({ commit }, loading) {
+    commit('SET_LOADING', loading)
   }
 }
