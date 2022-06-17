@@ -66,7 +66,9 @@ export default {
       return mainType || 'no-defined'
     },
     currentDescription() {
-      return this.descriptions[5]
+      const randomDescription = Math.floor(Math.random() * this.descriptions.length);
+
+      return this.descriptions[randomDescription]
     }
   }
 }
