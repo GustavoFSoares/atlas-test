@@ -117,10 +117,18 @@ export default {
     @extend .flex-center;
     @extend .fm-text-color-1;
     @extend .fm-font-weight-bold;
+    @extend .fm-font-align-center;
     text-transform: capitalize;
 
     @include media('tablet', 'min') {
       font-size: 45px;
+    }
+  }
+
+  &__stats {
+    @include media('tablet', 'min') {
+      width: 100%;
+      max-width: 420px;
     }
   }
 
