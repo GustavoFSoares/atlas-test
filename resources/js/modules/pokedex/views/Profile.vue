@@ -80,6 +80,7 @@ export default {
 
   margin-top: 10px;
   flex-direction: column;
+  min-height: 80vh;
 
   @include media('tablet', 'min') {
     gap: 20px;

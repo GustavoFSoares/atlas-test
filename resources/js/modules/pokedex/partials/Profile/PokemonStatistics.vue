@@ -84,6 +84,10 @@ $transitionDuration: 2s;
 
 .statistics {
   width: 100%;
+  height: 100%;
+  @extend .flex-column;
+  @extend .flex-space-between;
+
   @extend .fm-background-3;
   box-shadow: 0px 0px 10px map-get($colors, 2);
   border-radius: 4px;

@@ -36,7 +36,9 @@ export default {
 
 .statistics-card {
   width: 100%;
+  height: 100%;
   padding-top: 20px;
+  @extend .flex-column;
 
   &__text {
     position: relative;
@@ -45,6 +47,12 @@ export default {
     @extend .fm-font-weight-bold;
     @extend .flex-center-center;
     height: 60px;
+  }
+
+  &__container {
+    flex-grow: 1;
+    @extend .flex-column;
+    @extend .flex-space-around;
   }
 }
 </style>

@@ -70,8 +70,18 @@ export default {
     commit("STORE_SPECIFIC_POKEMONS", pokemonData);
   },
   async getPokemonStats({ getters, commit }, id) {
-    const { data: pokemonData } = await axios.get(`${getters.apiUrl}/pokemon/${id}`);
-    const { data: speciesData } = await axios.get(`${getters.apiUrl}/pokemon-species/${id}`);
+    let pokemonData;
+    let speciesData;
+
+    try {
+      const { data: pokemonDataRequest } = await axios.get(`${getters.apiUrl}/pokemon/${id}`);
+      pokemonData = pokemonDataRequest;
+
+      const { data: speciesDataRequest } = await axios.get(`${getters.apiUrl}/pokemon-species/${id}`);
+      speciesData = speciesDataRequest;
+    } catch(e) {
+      console.error(e);
+    }
 
     const stats = pokemonData.stats.reduce((amount, statData) => {
       amount[statData.stat.name] = statData.base_stat
@@ -79,9 +89,14 @@ export default {
       return amount
     }, {})
 
-    const flavorTexts = speciesData.flavor_text_entries
-      .filter(({ language }) => language.name === "en")
-      .map(flavorText => flavorText.flavor_text);
+    let flavorTexts
+    if (speciesData) {
+      flavorTexts = speciesData.flavor_text_entries
+        .filter(({ language }) => language.name === "en")
+        .map(flavorText => flavorText.flavor_text);
+    } else {
+      flavorTexts = ['?']
+    }
 
     const pokemon = {
       id,
