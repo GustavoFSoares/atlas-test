@@ -163,6 +163,7 @@ export default {
     right: 0;
     bottom: 0;
     width: 80px;
+    z-index: 5;
   }
 }
 </style>
